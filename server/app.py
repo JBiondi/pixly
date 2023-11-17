@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from sqlalchemy.types import Unicode
 
+
 from flask_cors import CORS
 
 from models import db, connect_db, Image
@@ -41,12 +42,12 @@ def get_all_images():
     term = request.args.get('searchTerm')
 
     if term:
-        images = Image.query.order_by(Image.uploaded_at.desc()).filter(
+        images = Image.query.order_by(Image.last_modified.desc()).filter(
             (Image.exif_data.cast(Unicode).ilike(f'%{term}%')
              | Image.file_name.ilike(f'%{term}%'))
         )
     else:
-        images = Image.query.order_by(Image.uploaded_at.desc()).all()
+        images = Image.query.order_by(Image.last_modified.desc()).all()
 
 
     serialized = [img.serialize() for img in images]
@@ -165,6 +166,7 @@ def edit_image(file_name):
         img_bytes_arr.close()
 
     # update postgres db
+    # image.last_modified = datetime.utcnow()
     db.session.commit()
 
     return jsonify(msg=f"sucessfully updated {file_name}")

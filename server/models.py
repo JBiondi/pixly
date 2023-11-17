@@ -1,5 +1,6 @@
 """Models for Pixly."""
 
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -37,6 +38,13 @@ class Image(db.Model):
         default=db.func.now()
     )
 
+    last_modified = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow
+    )
+
 
     def serialize(self):
         """Serialize to a dictionary."""
@@ -47,7 +55,8 @@ class Image(db.Model):
             "description": self.description,
             "aws_image_src": self.aws_image_src,
             "exif_data": self.exif_data,
-            "uploaded_at": self.uploaded_at
+            "uploaded_at": self.uploaded_at,
+            "last_modified": self.last_modified
         }
 
 

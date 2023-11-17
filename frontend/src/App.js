@@ -26,7 +26,7 @@ function App() {
 
   useEffect(function fetchImagesOnMount() {
     getImages();
-  }, []);
+  }, [isLoading]);
 
   /** Get all images from the API and update Images state
    * Takes optional parameter searchTerm.
@@ -46,8 +46,8 @@ function App() {
     const imageAdded = await submitNewImage(imageToAdd);
 
     setImages(formerImages => [...formerImages, imageAdded]);
+    setIsLoading(true);
   }
-
 
   return (
     <div className="App">

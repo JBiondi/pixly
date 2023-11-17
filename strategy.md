@@ -41,15 +41,20 @@ REMEMBER CORS ISSUES, test our flask-cors setup
     - black and white
     - sepia?
 
+
+
+
+
+
 ## Nice to haves once done
 - Alerts in front end
-- description text area?
 - JPEG format validation
-- Styling
-- Tests
-- More image edits
-- last modified
-- add caption/description to search
-- adding new image doesn't show up right away in all images
-- undo edit
+- More sexylicious styling
+- Tests lol
+- More image edit options
+- Add caption/description to search
+- Undo edit
+- Guardrails for not uploading to s3 but not db :(
+- Sort all images by last modified so edits show up at the top
+- Delete images
 

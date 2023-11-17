@@ -69,6 +69,7 @@ function NewImageForm({ addImage }) {
             placeholder="Name of file stored in Pixly"
             value={formData.file_name}
             onChange={handleChange}
+            required
           />
         </FormGroup>
         <FormGroup>
@@ -81,6 +82,7 @@ function NewImageForm({ addImage }) {
             placeholder="Image Caption"
             value={formData.caption}
             onChange={handleChange}
+            required
           />
         </FormGroup>
         <FormGroup>
@@ -93,6 +95,7 @@ function NewImageForm({ addImage }) {
             placeholder="Image Description"
             value={formData.description}
             onChange={handleChange}
+            required
           />
         </FormGroup>
         <FormGroup>
@@ -104,6 +107,7 @@ function NewImageForm({ addImage }) {
             name="image_file"
             type="file"
             onChange={handleChange}
+            required
           />
         </FormGroup>
         <Button>Submit</Button>
