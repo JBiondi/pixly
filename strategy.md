@@ -44,17 +44,18 @@ REMEMBER CORS ISSUES, test our flask-cors setup
 
 
 
-
-
-## Nice to haves once done
-- Alerts in front end
+## Nice to haves / implement next
+- Alerts on the front end
 - JPEG format validation
-- More sexylicious styling
-- Tests lol
-- More image edit options
+- Improve styling
+- Add tests
+- More image editing options
 - Add caption/description to search
-- Undo edit
-- Guardrails for not uploading to s3 but not db :(
-- Sort all images by last modified so edits show up at the top
+- Undo edit feature
+- We have guardrails for not uploading to s3 but need some for db
 - Delete images
+
+
+## DONE
+- Sort all images by last modified so edits show up at the top
 
